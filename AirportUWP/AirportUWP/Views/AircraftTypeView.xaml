@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="AirportUWP.Views.AircraftTypeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AirportUWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:AirportUWP.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ListBox Name="aircraftTypes" ItemsSource="{x:Bind AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="models:AircraftType">
+                    <StackPanel Margin="10">
+                        <TextBlock FontSize="16" Text="{x:Bind AircraftModel}" HorizontalAlignment="Center" />
+                        <TextBlock FontSize="16" Text="{x:Bind SeatsNumber}" HorizontalAlignment="Center" />
+                        <TextBlock FontSize="16" Text="{x:Bind Carrying}" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <!--<StackPanel Grid.Row="1" Margin="15">
+            <TextBox Name="titleTextBox" PlaceholderText="Введите название" Margin="2" />
+            <TextBox Name="companyTextBox" PlaceholderText="Введите производителя" Margin="2" />
+            <Button Content="Сохранить" Click="Button_Click" Margin="3" />
+        </StackPanel>-->
+
+    </Grid>
+</Page>
