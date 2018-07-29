@@ -14,7 +14,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <ListBox Name="aircraftTypes" ItemsSource="{x:Bind AircraftTypeViewModel.AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged">
+        <ListBox Name="aircraftTypes" ItemsSource="{x:Bind AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate x:DataType="models:AircraftType">
                     <StackPanel Margin="10">

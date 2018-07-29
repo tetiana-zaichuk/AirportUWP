@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace AirportUWP.Models
 {
-    class Crew
+    public class Crew
     {
+        public int id { get; set; }
+        public Pilot pilot { get; set; }
+        public List<Stewardess> stewardesses { get; set; }
     }
 }

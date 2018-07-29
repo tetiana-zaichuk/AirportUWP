@@ -28,15 +28,15 @@ namespace AirportUWP.Views
     /// </summary>
     public sealed partial class AircraftTypeView : Page
     {
-        //public ObservableCollection<AircraftType> AircraftTypes { get; set; }
+        public ObservableCollection<AircraftType> AircraftTypes { get; set; }
         public AircraftTypeViewModel AircraftTypeViewModel { get; set; }
 
         public AircraftTypeView()
         {
             this.InitializeComponent();
-            AircraftTypeViewModel = new AircraftTypeViewModel();
-            AircraftTypeViewModel.GetAsync();
-            //AircraftTypes = new ObservableCollection<AircraftType>();
+            //AircraftTypeViewModel = new AircraftTypeViewModel();
+            //AircraftTypeViewModel.GetAsync();
+            AircraftTypes = new ObservableCollection<AircraftType>();
             /*AircraftTypes = new ObservableCollection<AircraftType>()
             {
                 new AircraftType(){ aircraftModel = "Tupolev Tu-134", seatsNumber = 80, carrying = 47000},
@@ -45,11 +45,16 @@ namespace AirportUWP.Views
             };*/
         }
 
-       /* protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-             
+            AircraftTypes = new ObservableCollection<AircraftType>()
+            {
+                new AircraftType(){ aircraftModel = "Tupolev Tu-134", seatsNumber = 80, carrying = 47000},
+                new AircraftType(){ aircraftModel = "Tupolev Tu-204", seatsNumber = 196, carrying = 107900},
+                new AircraftType(){ aircraftModel = "Ilyushin IL-62", seatsNumber = 138, carrying = 280300}
+            };
             //Frame.Navigate(typeof(MainPage));
-        }*/
+        }
 
         private async void aircraftTypesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

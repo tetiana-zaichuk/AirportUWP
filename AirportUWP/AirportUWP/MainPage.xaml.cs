@@ -30,11 +30,62 @@ namespace AirportUWP
         public MainPage()
         {
             this.InitializeComponent();
+            myFrame.Navigate(typeof(FlightView));
+            TitleTextBlock.Text = "Flights";
         }
 
-        private void Forward_Click(object sender, RoutedEventArgs e)
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FlightView.IsSelected)
+            {
+                myFrame.Navigate(typeof(FlightView));
+                TitleTextBlock.Text = "Flights";
+            }
+            else if (AircraftView.IsSelected)
+            {
+                myFrame.Navigate(typeof(AircraftView));
+                TitleTextBlock.Text = "Aircrafts";
+            }
+            else if (AircraftTypeView.IsSelected)
+            {
+                myFrame.Navigate(typeof(AircraftTypeView));
+                TitleTextBlock.Text = "Aircraft types";
+            }
+            else if (DepartureView.IsSelected)
+            {
+                myFrame.Navigate(typeof(DepartureView));
+                TitleTextBlock.Text = "Departures";
+            }
+            else if (CrewView.IsSelected)
+            {
+                myFrame.Navigate(typeof(CrewView));
+                TitleTextBlock.Text = "Crews";
+            }
+            else if (PilotView.IsSelected)
+            {
+                myFrame.Navigate(typeof(PilotView));
+                TitleTextBlock.Text = "Pilots";
+            }
+            else if (StewardessView.IsSelected)
+            {
+                myFrame.Navigate(typeof(StewardessView));
+                TitleTextBlock.Text = "Stewardesses";
+            }
+            else if (TicketView.IsSelected)
+            {
+                myFrame.Navigate(typeof(TicketView));
+                TitleTextBlock.Text = "Tickets";
+            }
+        }
+
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            mySplitView.IsPaneOpen = !mySplitView.IsPaneOpen;
+        }
+
+        /*private void Forward_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(AircraftTypeView));
-        }
+        }*/
     }
 }

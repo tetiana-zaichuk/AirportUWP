@@ -101,13 +101,38 @@
     <Compile Include="Models\Aircraft.cs" />
     <Compile Include="Models\AircraftType.cs" />
     <Compile Include="Models\Crew.cs" />
+    <Compile Include="Models\Departure.cs" />
+    <Compile Include="Models\Flight.cs" />
     <Compile Include="Models\Pilot.cs" />
+    <Compile Include="Models\Stewardess.cs" />
+    <Compile Include="Models\Ticket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AircraftTypeService.cs" />
     <Compile Include="ViewModels\AircraftTypeViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Views\AircraftTypeView.xaml.cs">
       <DependentUpon>AircraftTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AircraftView.xaml.cs">
+      <DependentUpon>AircraftView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CrewView.xaml.cs">
+      <DependentUpon>CrewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartureView.xaml.cs">
+      <DependentUpon>DepartureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FlightView.xaml.cs">
+      <DependentUpon>FlightView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PilotView.xaml.cs">
+      <DependentUpon>PilotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StewardessView.xaml.cs">
+      <DependentUpon>StewardessView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TicketView.xaml.cs">
+      <DependentUpon>TicketView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +161,34 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AircraftTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AircraftView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CrewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DepartureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FlightView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PilotView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StewardessView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TicketView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

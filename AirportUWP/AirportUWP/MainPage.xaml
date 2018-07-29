@@ -8,13 +8,56 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <!--<Grid>
-
-    </Grid>-->
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <RelativePanel>
+            <Button x:Name="HamburgerButton" RelativePanel.AlignLeftWithPanel="True"
+                    FontFamily="Segoe MDL2 Assets" FontSize="36"
+                    Content="&#xE700;" Click="HamburgerButton_Click"/>
+            <TextBlock Name="TitleTextBlock" RelativePanel.RightOf="HamburgerButton"
+                       FontSize="28" FontWeight="Bold" Margin="30 5 0 0" />
+        </RelativePanel>
+        <SplitView Name="mySplitView" Grid.Row="1" OpenPaneLength="200">
+            <SplitView.Pane>
+                <ListBox SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged">
+                    <ListBoxItem Name="FlightView">
+                        <TextBlock FontSize="24" Text="Flights" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="AircraftView">
+                        <TextBlock FontSize="24" Text="Aircrafts" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="AircraftTypeView">
+                        <TextBlock FontSize="24" Text="Aircraft types" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="DepartureView">
+                        <TextBlock FontSize="24" Text="Departures" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="CrewView">
+                        <TextBlock FontSize="24" Text="Crews" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="PilotView">
+                        <TextBlock FontSize="24" Text="Pilots" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="StewardessView">
+                        <TextBlock FontSize="24" Text="Stewardesses" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="TicketView">
+                        <TextBlock FontSize="24" Text="Tickets" />
+                    </ListBoxItem>
+                </ListBox>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Frame Name="myFrame" />
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+    <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
             <TextBlock Text="AircratType" Style="{ThemeResource HeaderTextBlockStyle}" />
             <Button Content="Вперед" Click="Forward_Click" />
         </StackPanel>
-    </Grid>
+    </Grid>-->
 </Page>
