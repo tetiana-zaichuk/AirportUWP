@@ -12,7 +12,6 @@
 
     <SplitView x:Name="splitView" Background="White" PaneBackground="LightSkyBlue" PanePlacement="Right">
         <SplitView.Pane>
-            <!--<DataTemplate x:DataType="models:AircraftType">-->
             <StackPanel Margin="10" DataContext="{Binding DataContext,ElementName=splitView, Mode=TwoWay}">
                 <TextBlock Text="Details" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="21"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">

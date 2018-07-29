@@ -36,8 +36,8 @@ namespace PresentationLayer.Controllers
                 return BadRequest("Enter correct entity");
             if (DateTime.Compare(departure.DepartureDate, DateTime.UtcNow) < 0)
                 return BadRequest("Wrong departure date");
-            if (!await Services.ValidationForeignIdAsync(departure))
-                return BadRequest("Wrong foreign id");
+            //if (!await Services.ValidationForeignIdAsync(departure))
+            //    return BadRequest("Wrong foreign id");
             if (departure.Id != 0)
                 return BadRequest("You can`t enter the id");
             await Services.AddAsync(departure);

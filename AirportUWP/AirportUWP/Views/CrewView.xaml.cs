@@ -52,7 +52,7 @@ namespace AirportUWP.Views
             }
         }
 
-        private async void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
             TextBox t = new TextBox();
             t.IsReadOnly = false;
@@ -79,7 +79,7 @@ namespace AirportUWP.Views
             ButtonEdit.IsEnabled = true;*/
         }
 
-        private async void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
             ButtonSave.Visibility = Visibility.Collapsed;
             ButtonCancel.Visibility = Visibility.Collapsed;

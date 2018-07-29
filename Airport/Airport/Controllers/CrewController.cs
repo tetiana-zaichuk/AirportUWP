@@ -38,8 +38,8 @@ namespace PresentationLayer.Controllers
         {
             if (crew == null)
                 return BadRequest("Enter correct entity");
-            if (!await Services.ValidationForeignIdAsync(crew))
-                return BadRequest("Wrong foreign id");
+            //if (!await Services.ValidationForeignIdAsync(crew))
+            //    return BadRequest("Wrong foreign id");
             if (crew.Id != 0)
                 return BadRequest("You can`t enter the id");
             await Services.AddAsync(crew);

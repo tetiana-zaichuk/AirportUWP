@@ -2,11 +2,11 @@
     x:Class="AirportUWP.Views.CrewView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:AirportUWP.Views"
+    xmlns:local="using:AirportUWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:AirportUWP.Models"
-    mc:Ignorable="d"
+    mc:Ignorable="d" Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <SplitView x:Name="splitView" Background="White" PaneBackground="LightSkyBlue" PanePlacement="Right">
@@ -27,12 +27,12 @@
                         <RowDefinition MinHeight="35" MaxHeight="40"/>
                         <RowDefinition MinHeight="35" MaxHeight="40"/>
                     </Grid.RowDefinitions>
-                    <!--<TextBlock Text="pilot first name" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBlock Text="pilot first name" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
                     <TextBox x:Name="PFirstName" IsReadOnly="True" FontSize="16" Text="{Binding pilot.firstName}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
                     <TextBlock Text="pilot last name" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" FontWeight="SemiBold"/>
                     <TextBox x:Name="PLastName" FontSize="16" Text="{Binding pilot.lastName}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
                     <TextBlock Text="stewardess first name" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBox x:Name="StFirstName" FontSize="16" Text="{Binding stewardess.firstName}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>-->
+                    <TextBox x:Name="StFirstName" FontSize="16" Text="{Binding stewardess.firstName}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
 
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">

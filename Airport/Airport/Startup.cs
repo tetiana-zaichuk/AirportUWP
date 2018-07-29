@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 
 namespace PresentationLayer
 {
@@ -29,7 +30,9 @@ namespace PresentationLayer
             //string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AirportContext>(options => options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Airportdb;Trusted_Connection=True;"));
 
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(options => {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
             //services.AddScoped<DataSeends>();
             //services.AddScoped<AirportContext>();
 

@@ -37,8 +37,8 @@ namespace PresentationLayer.Controllers
                 return BadRequest("Enter correct entity");
             if (DateTime.Compare(aircraft.AircraftReleaseDate, DateTime.UtcNow) >= 0)
                 return BadRequest("Wrong release date");
-            if (!await Services.ValidationForeignIdAsync(aircraft))
-                return BadRequest("Wrong foreign id");
+            //if (!await Services.ValidationForeignIdAsync(aircraft))
+            //    return BadRequest("Wrong foreign id");
             if (aircraft.Id != 0)
                 return BadRequest("You can`t enter the id");
             //aircraft.Id = Services.GetAllAsync().Count + 1;
