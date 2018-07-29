@@ -71,9 +71,18 @@ namespace AirportUWP.Services
         public async Task<ObservableCollection<AircraftType>> GetAsync()
         {
             var response = await _client.GetStringAsync(_uri).ConfigureAwait(false);
-            //var responseString = await response.Content.ReadAsStringAsync();
             return await Task.Run(() => JsonConvert.DeserializeObject<ObservableCollection<AircraftType>>(response));
-             //result;
+        }
+
+        public async Task DeleteByIdAsync(int id)
+        {
+            await _client.DeleteAsync(new Uri("" + _uri + id));
+        }
+
+        public async Task PostAsync(AircraftType type)
+        {
+            var json = new StringContent(JsonConvert.SerializeObject(type), Encoding.UTF8, "application/json");
+            var response = await _client.PostAsync(_uri, json);
         }
         /*
         public async Task<AircraftType> GetByIdAsync(int id)
@@ -84,15 +93,7 @@ namespace AirportUWP.Services
             return result;
         }
 
-        public async Task PostAsync(AircraftType type)
-        {
-            string json = await Task.Run(() => JsonConvert.SerializeObject(type));
-            var httpContent = new HttpFormUrlEncodedContent(new Dictionary<string, string>
-            {
-                ["value"] = json
-            });
-            var response = await _client.PostAsync(_uri, httpContent);
-        }
+        
 
         public async Task UpdateAsync(AircraftType type)
         {

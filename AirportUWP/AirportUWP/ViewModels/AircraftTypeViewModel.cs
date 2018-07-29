@@ -36,7 +36,7 @@ namespace AirportUWP.ViewModels
         //   //return AircraftTypes;
         //}
 
-        public async Task UpdateList()
+        public async Task UpdateListAsync()
         {
             var newCollection = new ObservableCollection<AircraftType>(await _aircraftTypeService.GetAsync());
             AircraftTypes.Clear();
@@ -55,7 +55,7 @@ namespace AirportUWP.ViewModels
         public async Task DeleteAsync(int id)
         {
             await _aircraftTypeService.DeleteByIdAsync(id);
-            await UpdateList();
+            await UpdateListAsync();
         }
     }
 }

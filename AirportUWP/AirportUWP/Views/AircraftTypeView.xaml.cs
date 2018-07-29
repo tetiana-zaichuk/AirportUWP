@@ -30,13 +30,10 @@ namespace AirportUWP.Views
     {
         //public ObservableCollection<AircraftType> AircraftTypes { get; set; }
 
-
         public AircraftTypeView()
         {
             AircraftTypeViewModel = new AircraftTypeViewModel();
             this.InitializeComponent();
-            //
-            //AircraftTypes = new ObservableCollection<AircraftType>();
             /*AircraftTypes = new ObservableCollection<AircraftType>()
             {
                 new AircraftType(){ aircraftModel = "Tupolev Tu-134", seatsNumber = 80, carrying = 47000},
@@ -45,21 +42,11 @@ namespace AirportUWP.Views
             };*/
         }
         public AircraftTypeViewModel AircraftTypeViewModel { get; set; }
+
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            await AircraftTypeViewModel.UpdateList();
+            await AircraftTypeViewModel.UpdateListAsync();
         }
-
-        /* protected override void OnNavigatedTo(NavigationEventArgs e)
-         {
-             AircraftTypes = new ObservableCollection<AircraftType>()
-             {
-                 new AircraftType(){ aircraftModel = "Tupolev Tu-134", seatsNumber = 80, carrying = 47000},
-                 new AircraftType(){ aircraftModel = "Tupolev Tu-204", seatsNumber = 196, carrying = 107900},
-                 new AircraftType(){ aircraftModel = "Ilyushin IL-62", seatsNumber = 138, carrying = 280300}
-             };
-             //Frame.Navigate(typeof(MainPage));
-         }*/
 
         private void aircraftTypesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -69,8 +56,14 @@ namespace AirportUWP.Views
             splitView.IsPaneOpen = !splitView.IsPaneOpen;
         }
 
-        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        private async void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (splitView.DataContext != null)
+            {
+                var r=splitView.DataContext as AircraftType;
+                await AircraftTypeViewModel.DeleteAsync(r.id);
+            }
+
             ButtonDelete.Content = "Clicked!";
         }
 

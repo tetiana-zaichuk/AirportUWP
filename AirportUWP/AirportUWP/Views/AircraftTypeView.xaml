@@ -44,7 +44,7 @@
             <ListBox Name="AircraftType" ItemsSource="{x:Bind AircraftTypeViewModel.AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged" >
                 <ListBox.ItemTemplate>
                     <DataTemplate x:DataType="models:AircraftType">
-                        <StackPanel Margin="10"  HorizontalAlignment="Center">
+                        <StackPanel Margin="14, 10"  HorizontalAlignment="Center">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
