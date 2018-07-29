@@ -35,24 +35,36 @@
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button x:Name="ButtonEdit" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Edit" Click="ButtonEdit_Click" Margin="15" />
-                <Button x:Name="ButtonDelete" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Delete" Click="ButtonDelete_Click" />
-</StackPanel>
+                    <Button x:Name="ButtonDelete" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Delete" Click="ButtonDelete_Click" />
+                </StackPanel>
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
-            <Grid>
 
-                <ListBox Name="AircraftType" ItemsSource="{x:Bind AircraftTypeViewModel.AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged" HorizontalAlignment="Center" >
-                    <ListBox.ItemTemplate>
-                        <DataTemplate x:DataType="models:AircraftType">
-                            <StackPanel Margin="55, 10" >
-                                <TextBlock FontSize="17" Text="{x:Bind id}" HorizontalAlignment="Center" />
-                                <TextBlock FontSize="17" Text="{x:Bind aircraftModel}" HorizontalAlignment="Center" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </Grid>
+            <ListBox Name="AircraftType" ItemsSource="{x:Bind AircraftTypeViewModel.AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="models:AircraftType">
+                        <StackPanel Margin="10"  HorizontalAlignment="Center">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition MinHeight="35" MaxHeight="40"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Id: " FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" FontWeight="SemiBold"/>
+                                <TextBlock FontSize="17" Text="{x:Bind id}" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Text=" Model: " FontSize="17" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" Grid.Column="2"/>
+                                <TextBlock FontSize="17" Text="{x:Bind aircraftModel}" VerticalAlignment="Center" Grid.Column="3"/>
+                                </Grid>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
         </SplitView.Content>
     </SplitView>
 

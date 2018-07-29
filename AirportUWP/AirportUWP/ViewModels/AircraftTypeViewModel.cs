@@ -19,7 +19,6 @@ namespace AirportUWP.ViewModels
         {
            // Title = "AircraftType";
             _aircraftTypeService = new AircraftTypeService();
-           // AircraftTypes 
             /*AircraftTypes = new ObservableCollection<AircraftType>()
             {
                 new AircraftType(){ aircraftModel = "Tupolev Tu-134", seatsNumber = 80, carrying = 47000},
@@ -52,5 +51,11 @@ namespace AirportUWP.ViewModels
             AircraftType = await _aircraftTypeService.GetByIdAsync(id);
             return AircraftType;
         }*/
+
+        public async Task DeleteAsync(int id)
+        {
+            await _aircraftTypeService.DeleteByIdAsync(id);
+            await UpdateList();
+        }
     }
 }
