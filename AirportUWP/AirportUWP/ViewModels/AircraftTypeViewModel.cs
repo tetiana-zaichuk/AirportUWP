@@ -28,10 +28,10 @@ namespace AirportUWP.ViewModels
             };*/
         }
 
-        public async void/*<ObservableCollection<AircraftType>>*/ GetAsync()
+        public async Task/*<ObservableCollection<AircraftType>>*/ GetAsync()
         {
             AircraftTypes = await _aircraftTypeService.GetAsync();
-            NotifyPropertyChanged(() => AircraftTypes);
+            //NotifyPropertyChanged(() => AircraftTypes);
            // return AircraftTypes;
         }
         /*
