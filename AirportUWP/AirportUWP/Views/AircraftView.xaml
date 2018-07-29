@@ -28,7 +28,7 @@
                         <RowDefinition MinHeight="35" MaxHeight="40"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="aircraft name" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBox x:Name="AircraftName" IsReadOnly="True" FontSize="16" Text="{Binding aircraftName}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                    <TextBox x:Name="AircraftName" FontSize="16" Text="{Binding aircraftName}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
                     <TextBlock Text="aircraft release date" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" FontWeight="SemiBold"/>
                     <TextBox x:Name="AircraftReleaseDate" FontSize="16" Text="{Binding aircraftReleaseDate}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
                     <TextBlock Text="exploitation time span" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontWeight="SemiBold"/>

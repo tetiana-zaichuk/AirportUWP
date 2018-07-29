@@ -23,13 +23,13 @@
         <SplitView Name="mySplitView" Grid.Row="1" OpenPaneLength="200">
             <SplitView.Pane>
                 <ListBox SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged" Background="LightSkyBlue">
-                    <ListBoxItem Name="AircraftTypeView">
+                    <ListBoxItem Name="FlightView">
                         <TextBlock FontSize="24" Text="Flights" />
                     </ListBoxItem>
                     <ListBoxItem Name="AircraftView">
                         <TextBlock FontSize="24" Text="Aircrafts" />
                     </ListBoxItem>
-                    <ListBoxItem Name="FlightView">
+                    <ListBoxItem Name="AircraftTypeView">
                         <TextBlock FontSize="24" Text="Aircraft types" />
                     </ListBoxItem>
                     <ListBoxItem Name="DepartureView">
