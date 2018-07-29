@@ -2,9 +2,9 @@
 {
     public class AircraftType
     {
-        public int Id { get; set; }
-        public string AircraftModel { get; set; }
-        public int SeatsNumber { get; set; }
-        public int Carrying { get; set; }
+        public int id { get; set; }
+        public string aircraftModel { get; set; }
+        public int seatsNumber { get; set; }
+        public int carrying { get; set; }
     }
 }

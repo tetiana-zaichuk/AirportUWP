@@ -14,13 +14,14 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <ListBox Name="aircraftTypes" ItemsSource="{x:Bind AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged">
+        <ListBox Name="aircraftTypes" ItemsSource="{x:Bind AircraftTypeViewModel.AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate x:DataType="models:AircraftType">
                     <StackPanel Margin="10">
-                        <TextBlock FontSize="16" Text="{x:Bind AircraftModel}" HorizontalAlignment="Center" />
-                        <TextBlock FontSize="16" Text="{x:Bind SeatsNumber}" HorizontalAlignment="Center" />
-                        <TextBlock FontSize="16" Text="{x:Bind Carrying}" HorizontalAlignment="Center" />
+                        <TextBlock FontSize="16" Text="You here" HorizontalAlignment="Center" />
+                        <TextBlock FontSize="16" Text="{x:Bind aircraftModel}" HorizontalAlignment="Center" />
+                        <TextBlock FontSize="16" Text="{x:Bind seatsNumber}" HorizontalAlignment="Center" />
+                        <TextBlock FontSize="16" Text="{x:Bind carrying}" HorizontalAlignment="Center" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

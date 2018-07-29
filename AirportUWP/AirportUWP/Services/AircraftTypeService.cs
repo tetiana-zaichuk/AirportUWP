@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Web.Http;
 using AirportUWP.Models;
 using Newtonsoft.Json;
 
@@ -22,12 +22,12 @@ namespace AirportUWP.Services
 
         public async Task<ObservableCollection<AircraftType>> GetAsync()
         {
-            var response = await _client.GetAsync(_uri);
+            var response = await _client.GetAsync(_uri).ConfigureAwait(false);
             var responseString = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<ObservableCollection<AircraftType>>(responseString);
             return result;
         }
-
+        /*
         public async Task<AircraftType> GetByIdAsync(int id)
         {
             var response = await _client.GetAsync(new Uri(""+_uri + id));
@@ -48,7 +48,7 @@ namespace AirportUWP.Services
 
         public async Task UpdateAsync(AircraftType type)
         {
-            var id = type.Id;
+            var id = type.id;
             string json = await Task.Run(() => JsonConvert.SerializeObject(type));
             var httpContent = new HttpFormUrlEncodedContent(new Dictionary<string, string>
             {
@@ -60,6 +60,6 @@ namespace AirportUWP.Services
         public async Task DeleteByIdAsync(int id)
         {
             var response = await _client.DeleteAsync(new Uri("" + _uri + id));
-        }
+        }*/
     }
 }
