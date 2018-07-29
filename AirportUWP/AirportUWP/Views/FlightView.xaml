@@ -30,7 +30,7 @@
                         <RowDefinition MinHeight="35" MaxHeight="40"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="departure" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBox x:Name="Departure" IsReadOnly="True" FontSize="16" Text="{Binding departure}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                    <TextBox x:Name="Departure"  FontSize="16" Text="{Binding departure}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
                     <TextBlock Text="departure time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" Grid.Row="1"/>
                     <TextBox x:Name="DepartureTime" FontSize="16" Text="{Binding departureTime}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
                     <TextBlock Text="destination" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" Grid.Row="2"/>
@@ -38,7 +38,7 @@
                     <TextBlock Text="arrival time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" Grid.Row="3"/>
                     <TextBox x:Name="ArrivalTime" FontSize="16" Text="{Binding arrivalTime}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3"/>
                     <TextBlock Text="tickets count" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" Grid.Row="4"/>
-                    <TextBox x:Name="TicketsCount" FontSize="16" Text="{Binding tickets.Count}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4"/>
+                    <TextBox x:Name="TicketsCount" IsReadOnly="True" FontSize="16" Text="{Binding tickets.Count}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4"/>
 
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
