@@ -25,6 +25,12 @@ namespace AirportUWP.ViewModels
             }
         }
 
+        public async Task AddAsync(Ticket ob)
+        {
+            await _ticketService.PostAsync(ob);
+            await UpdateListAsync();
+        }
+
         public async Task UpdateAsync(Ticket ob)
         {
             await _ticketService.UpdateAsync(ob);

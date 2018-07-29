@@ -25,6 +25,12 @@ namespace AirportUWP.ViewModels
             }
         }
 
+        public async Task AddAsync(Stewardess ob)
+        {
+            await _stewardessService.PostAsync(ob);
+            await UpdateListAsync();
+        }
+
         public async Task UpdateAsync(Stewardess ob)
         {
             await _stewardessService.UpdateAsync(ob);

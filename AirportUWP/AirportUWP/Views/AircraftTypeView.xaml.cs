@@ -40,6 +40,34 @@ namespace AirportUWP.Views
             }
         }
 
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonAdd.IsEnabled = false;
+            AddForm.Visibility = Visibility.Visible;
+
+        }
+
+        private void ButtonCancel1_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonAdd.IsEnabled = true;
+            AddForm.Visibility = Visibility.Collapsed;
+        }
+
+        private async void ButtonSave1_Click(object sender, RoutedEventArgs e)
+        {
+            var type = new AircraftType();
+            type.aircraftModel = AircraftModel1.Text;
+            int value;
+            if (int.TryParse(SeatsNumber1.Text, out value))
+                type.seatsNumber = value;
+            if (int.TryParse(Carrying1.Text, out value))
+                type.carrying = value;
+            else return;
+            await AircraftTypeViewModel.AddAsync(type);
+            AddForm.Visibility = Visibility.Collapsed;
+            ButtonAdd.IsEnabled = true;
+        }
+
         private async void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
             TextBox t = new TextBox();

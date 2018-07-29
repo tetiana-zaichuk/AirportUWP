@@ -70,6 +70,39 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="ButtonAdd" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Add" Click="ButtonAdd_Click" Margin="15"/>
+            </StackPanel>
+            <StackPanel x:Name="AddForm" Visibility="Collapsed">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="ButtonSave1" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Save" Click="ButtonSave1_Click" Margin="15" />
+                    <Button x:Name="ButtonCancel1" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Cancel" Click="ButtonCancel1_Click"/>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition MinHeight="35" MaxHeight="40"/>
+                        <RowDefinition MinHeight="35" MaxHeight="40"/>
+                        <RowDefinition MinHeight="35" MaxHeight="40"/>
+                        <RowDefinition MinHeight="35" MaxHeight="40"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="departure date" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="DepartureDate1"  FontSize="16" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                    <TextBlock Text="flight id" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="FlightId1" IsReadOnly="True" FontSize="16" Text="{Binding flight.id}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock Text="aircraft id" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="AircraftId1" IsReadOnly="True" FontSize="16" Text="{Binding aircraft.id}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
+                    <TextBlock Text="crew id" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" Grid.Row="3"/>
+                    <TextBox x:Name="CrewId1" IsReadOnly="True" FontSize="16" Text="{Binding crew.id}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3"/>
+
+                </Grid>
+
+            </StackPanel>
+            </StackPanel>
+
         </SplitView.Content>
     </SplitView>
 </Page>

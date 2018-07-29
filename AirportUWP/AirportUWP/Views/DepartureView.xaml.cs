@@ -52,7 +52,32 @@ namespace AirportUWP.Views
             }
         }
 
-        private async void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonAdd.IsEnabled = false;
+            AddForm.Visibility = Visibility.Visible;
+
+        }
+
+        private void ButtonCancel1_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonAdd.IsEnabled = true;
+            AddForm.Visibility = Visibility.Collapsed;
+        }
+
+        private async void ButtonSave1_Click(object sender, RoutedEventArgs e)
+        {
+            var ob = new Departure();
+            DateTime value;
+            if (DateTime.TryParse(DepartureDate1.Text, out value))
+                ob.departureDate = value;
+            else return;
+            await DepartureViewModel.AddAsync(ob);
+            AddForm.Visibility = Visibility.Collapsed;
+            ButtonAdd.IsEnabled = true;
+        }
+
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
             TextBox t = new TextBox();
             t.IsReadOnly = false;

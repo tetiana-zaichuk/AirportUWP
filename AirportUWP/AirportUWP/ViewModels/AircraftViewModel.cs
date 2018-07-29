@@ -25,6 +25,12 @@ namespace AirportUWP.ViewModels
             }
         }
 
+        public async Task AddAsync(Aircraft ob)
+        {
+            await _aircraftService.PostAsync(ob);
+            await UpdateListAsync();
+        }
+
         public async Task UpdateAsync(Aircraft ob)
         {
             await _aircraftService.UpdateAsync(ob);

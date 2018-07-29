@@ -51,6 +51,35 @@ namespace AirportUWP.Views
                 await FlightViewModel.DeleteAsync(type.id);
             }
         }
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonAdd.IsEnabled = false;
+            AddForm.Visibility = Visibility.Visible;
+
+        }
+
+        private void ButtonCancel1_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonAdd.IsEnabled = true;
+            AddForm.Visibility = Visibility.Collapsed;
+        }
+
+        private async void ButtonSave1_Click(object sender, RoutedEventArgs e)
+        {
+            var ob = new Flight();
+            ob.departure = Departure1.Text;
+            ob.destination = Destination1.Text;
+            DateTime value;
+            if (DateTime.TryParse(DepartureTime1.Text, out value))
+                ob.departureTime = value;
+            else return;
+            if (DateTime.TryParse(ArrivalTime1.Text, out value))
+                ob.arrivalTime = value;
+            else return;
+            await FlightViewModel.AddAsync(ob);
+            AddForm.Visibility = Visibility.Collapsed;
+            ButtonAdd.IsEnabled = true;
+        }
 
         private async void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
