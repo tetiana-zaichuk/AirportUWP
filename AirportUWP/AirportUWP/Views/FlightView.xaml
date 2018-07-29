@@ -2,13 +2,75 @@
     x:Class="AirportUWP.Views.FlightView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:AirportUWP.Views"
+    xmlns:local="using:AirportUWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
+    xmlns:models="using:AirportUWP.Models"
+    mc:Ignorable="d" Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock FontSize="24" Text="Flight" />
-    </Grid>
+    <SplitView x:Name="splitView" Background="White" PaneBackground="LightSkyBlue" PanePlacement="Right">
+        <SplitView.Pane>
+            <StackPanel Margin="10" DataContext="{Binding DataContext,ElementName=splitView, Mode=TwoWay}">
+                <TextBlock Text="Details" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="21"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="ButtonSave" Visibility="Collapsed" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Save" Click="ButtonSave_Click" Margin="15" />
+                    <Button x:Name="ButtonCancel" Visibility="Collapsed" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Cancel" Click="ButtonCancel_Click"/>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition MinHeight="35" MaxHeight="40"/>
+                        <RowDefinition MinHeight="35" MaxHeight="40"/>
+                        <RowDefinition MinHeight="35" MaxHeight="40"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="departure" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="Departure" IsReadOnly="True" FontSize="16" Text="{Binding departure}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                    <TextBlock Text="departure time" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="DepartureTime" FontSize="16" Text="{Binding departureTime}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock Text="destination" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="Destination" FontSize="16" Text="{Binding destination}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
+                    <TextBlock Text="arrival time" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="ArrivalTime" FontSize="16" Text="{Binding arrivalTime}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
+                    <TextBlock Text="destination" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="TicketsCount" FontSize="16" Text="{Binding tickets.Count}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
+
+                </Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="ButtonEdit" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Edit" Click="ButtonEdit_Click" Margin="15" />
+                    <Button x:Name="ButtonDelete" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Delete" Click="ButtonDelete_Click" />
+                </StackPanel>
+            </StackPanel>
+        </SplitView.Pane>
+        <SplitView.Content>
+
+            <ListBox Name="Flight" ItemsSource="{x:Bind FlightViewModel.Flights}" SelectionChanged="flightList_SelectionChanged" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="models:Flight">
+                        <StackPanel Margin="14, 10"  HorizontalAlignment="Center">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition MinHeight="35" MaxHeight="40"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Departure: " FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" FontWeight="SemiBold"/>
+                                <TextBlock FontSize="17" Text="{x:Bind departure}" VerticalAlignment="Center" Grid.Column="1"/>
+                                <TextBlock Text=" Destination: " FontSize="17" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" Grid.Column="2"/>
+                                <TextBlock FontSize="17" Text="{x:Bind destination}" VerticalAlignment="Center" Grid.Column="3"/>
+                            </Grid>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </SplitView.Content>
+    </SplitView>
 </Page>

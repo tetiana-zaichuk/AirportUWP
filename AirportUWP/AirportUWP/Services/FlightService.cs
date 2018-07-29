@@ -12,23 +12,23 @@ using Newtonsoft.Json;
 
 namespace AirportUWP.Services
 {
-    public class AircraftTypeService
+    public class FlightService
     {
         private readonly HttpClient _client;
-        private readonly Uri _uri = new Uri("http://localhost:38236/api/AircraftsTypes/");
+        private readonly Uri _uri = new Uri("http://localhost:38236/api/Flights/");
         public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<AircraftType> Items { get; set; } = new ObservableCollection<AircraftType>();
+        public ObservableCollection<Flight> Items { get; set; } = new ObservableCollection<Flight>();
 
-        public AircraftTypeService()
+        public FlightService()
         {
             if (_client == null)
             {
                 _client = new HttpClient();
             }
         }
-        public AircraftType selectedItem;
+        public Flight selectedItem;
 
-        public AircraftType SelectedItem
+        public Flight SelectedItem
         {
             get => selectedItem;
             set
@@ -54,11 +54,11 @@ namespace AirportUWP.Services
                 }
             }
         }
-        
-        public async Task<ObservableCollection<AircraftType>> GetAsync()
+
+        public async Task<ObservableCollection<Flight>> GetAsync()
         {
             var response = await _client.GetStringAsync(_uri).ConfigureAwait(false);
-            return await Task.Run(() => JsonConvert.DeserializeObject<ObservableCollection<AircraftType>>(response));
+            return await Task.Run(() => JsonConvert.DeserializeObject<ObservableCollection<Flight>>(response));
         }
 
         public async Task DeleteByIdAsync(int id)
@@ -66,13 +66,13 @@ namespace AirportUWP.Services
             await _client.DeleteAsync(new Uri("" + _uri + id));
         }
 
-        public async Task PostAsync(AircraftType type)
+        public async Task PostAsync(Flight type)
         {
             var json = new StringContent(JsonConvert.SerializeObject(type), Encoding.UTF8, "application/json");
             var response = await _client.PostAsync(_uri, json);
         }
 
-        public async Task UpdateAsync(AircraftType type)
+        public async Task UpdateAsync(Flight type)
         {
             var id = type.id;
             var json = new StringContent(JsonConvert.SerializeObject(type), Encoding.UTF8, "application/json");

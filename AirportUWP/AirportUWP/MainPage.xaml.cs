@@ -30,15 +30,15 @@ namespace AirportUWP
         public MainPage()
         {
             this.InitializeComponent();
-            MenuFrame.Navigate(typeof(FlightView));
+            MenuFrame.Navigate(typeof(AircraftTypeView /*FlightView*/));
             TitleTextBlock.Text = "Flights";
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (FlightView.IsSelected)
+            if (/*FlightView*/AircraftTypeView.IsSelected)
             {
-                MenuFrame.Navigate(typeof(FlightView));
+                MenuFrame.Navigate(typeof(AircraftTypeView /*FlightView*/));
                 TitleTextBlock.Text = "Flights";
             }
             else if (AircraftView.IsSelected)

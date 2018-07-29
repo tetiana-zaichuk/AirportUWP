@@ -13,8 +13,12 @@
     <SplitView x:Name="splitView" Background="White" PaneBackground="LightSkyBlue" PanePlacement="Right">
         <SplitView.Pane>
             <!--<DataTemplate x:DataType="models:AircraftType">-->
-            <StackPanel Margin="10" DataContext="{Binding DataContext,ElementName=splitView}">
+            <StackPanel Margin="10" DataContext="{Binding DataContext,ElementName=splitView, Mode=TwoWay}">
                 <TextBlock Text="Details" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="21"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="ButtonSave" Visibility="Collapsed" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Save" Click="ButtonSave_Click" Margin="15" />
+                    <Button x:Name="ButtonCancel" Visibility="Collapsed" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Cancel" Click="ButtonCancel_Click"/>
+                </StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -26,11 +30,11 @@
                         <RowDefinition MinHeight="35" MaxHeight="40"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="aircraft model" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBlock FontSize="16" Text="{Binding aircraftModel}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                    <TextBox x:Name="AircraftModel" IsReadOnly="True" FontSize="16" Text="{Binding aircraftModel}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
                     <TextBlock Text="seats number" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBlock FontSize="16" Text="{Binding seatsNumber}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                    <TextBox x:Name="SeatsNumber" FontSize="16" Text="{Binding seatsNumber}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
                     <TextBlock Text="carrying" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBlock FontSize="16" Text="{Binding carrying}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
+                    <TextBox x:Name="Carrying" FontSize="16" Text="{Binding carrying}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
 
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -59,7 +63,7 @@
                                 <TextBlock FontSize="17" Text="{x:Bind id}" VerticalAlignment="Center" Grid.Column="1"/>
                                 <TextBlock Text=" Model: " FontSize="17" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" Grid.Column="2"/>
                                 <TextBlock FontSize="17" Text="{x:Bind aircraftModel}" VerticalAlignment="Center" Grid.Column="3"/>
-                                </Grid>
+                            </Grid>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
