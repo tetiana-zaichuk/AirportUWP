@@ -63,20 +63,24 @@ namespace AirportUWP.Views
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            /*if (splitView.DataContext != null)
+            if (splitView.DataContext != null)
             {
                 var ob = splitView.DataContext as Pilot;
-                ob.aircraftModel = AircraftModel.Text;
+                ob.firstName = FirstName.Text;
+                ob.lastName = LastName.Text;
+                DateTime value1;
                 int value;
-                if (int.TryParse(SeatsNumber.Text, out value))
-                    ob.seatsNumber = value;
-                if (int.TryParse(Carrying.Text, out value))
-                    ob.carrying = value;
+                if (DateTime.TryParse(Dob.Text, out value1))
+                    ob.dob = value1;
+                if (int.TryParse(CrewId.Text, out value))
+                    ob.crewId = value;
+                if (int.TryParse(Experience.Text, out value))
+                    ob.experience = value;
                 await PilotViewModel.UpdateAsync(ob);
             }
             ButtonSave.Visibility = Visibility.Collapsed;
             ButtonCancel.Visibility = Visibility.Collapsed;
-            ButtonEdit.IsEnabled = true;*/
+            ButtonEdit.IsEnabled = true;
         }
 
         private async void ButtonCancel_Click(object sender, RoutedEventArgs e)
