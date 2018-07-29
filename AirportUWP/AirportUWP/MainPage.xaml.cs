@@ -30,7 +30,7 @@ namespace AirportUWP
         public MainPage()
         {
             this.InitializeComponent();
-            myFrame.Navigate(typeof(FlightView));
+            MenuFrame.Navigate(typeof(FlightView));
             TitleTextBlock.Text = "Flights";
         }
 
@@ -38,42 +38,42 @@ namespace AirportUWP
         {
             if (FlightView.IsSelected)
             {
-                myFrame.Navigate(typeof(FlightView));
+                MenuFrame.Navigate(typeof(FlightView));
                 TitleTextBlock.Text = "Flights";
             }
             else if (AircraftView.IsSelected)
             {
-                myFrame.Navigate(typeof(AircraftView));
+                MenuFrame.Navigate(typeof(AircraftView));
                 TitleTextBlock.Text = "Aircrafts";
             }
             else if (AircraftTypeView.IsSelected)
             {
-                myFrame.Navigate(typeof(AircraftTypeView));
+                MenuFrame.Navigate(typeof(AircraftTypeView));
                 TitleTextBlock.Text = "Aircraft types";
             }
             else if (DepartureView.IsSelected)
             {
-                myFrame.Navigate(typeof(DepartureView));
+                MenuFrame.Navigate(typeof(DepartureView));
                 TitleTextBlock.Text = "Departures";
             }
             else if (CrewView.IsSelected)
             {
-                myFrame.Navigate(typeof(CrewView));
+                MenuFrame.Navigate(typeof(CrewView));
                 TitleTextBlock.Text = "Crews";
             }
             else if (PilotView.IsSelected)
             {
-                myFrame.Navigate(typeof(PilotView));
+                MenuFrame.Navigate(typeof(PilotView));
                 TitleTextBlock.Text = "Pilots";
             }
             else if (StewardessView.IsSelected)
             {
-                myFrame.Navigate(typeof(StewardessView));
+                MenuFrame.Navigate(typeof(StewardessView));
                 TitleTextBlock.Text = "Stewardesses";
             }
             else if (TicketView.IsSelected)
             {
-                myFrame.Navigate(typeof(TicketView));
+                MenuFrame.Navigate(typeof(TicketView));
                 TitleTextBlock.Text = "Tickets";
             }
         }

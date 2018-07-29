@@ -9,7 +9,32 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <SplitView x:Name="splitView" Background="White" PaneBackground="LightSkyBlue" PanePlacement="Right">
+        <SplitView.Pane>
+            <!--<DataTemplate x:DataType="models:AircraftType">-->
+            <StackPanel Margin="10" DataContext="{Binding DataContext,ElementName=splitView}">
+                <TextBlock FontSize="16" Text="{Binding aircraftModel}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="16" Text="{Binding seatsNumber}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="16" Text="{Binding carrying}" HorizontalAlignment="Center" />
+            </StackPanel>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Grid>
+
+                <ListBox Name="AircraftType" ItemsSource="{x:Bind AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:DataType="models:AircraftType">
+                            <StackPanel Margin="10">
+                                <TextBlock FontSize="16" Text="{x:Bind aircraftModel}" HorizontalAlignment="Center" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </SplitView.Content>
+    </SplitView>
+
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -25,12 +50,12 @@
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>
-        <!--<StackPanel Grid.Row="1" Margin="15">
+        </ListBox>-->
+    <!--<StackPanel Grid.Row="1" Margin="15">
             <TextBox Name="titleTextBox" PlaceholderText="Введите название" Margin="2" />
             <TextBox Name="companyTextBox" PlaceholderText="Введите производителя" Margin="2" />
             <Button Content="Сохранить" Click="Button_Click" Margin="3" />
-        </StackPanel>-->
+        </StackPanel>
 
-    </Grid>
+    </Grid>-->
 </Page>

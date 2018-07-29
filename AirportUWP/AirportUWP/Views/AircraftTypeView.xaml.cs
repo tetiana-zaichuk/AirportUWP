@@ -56,10 +56,12 @@ namespace AirportUWP.Views
             //Frame.Navigate(typeof(MainPage));
         }
 
-        private async void aircraftTypesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void aircraftTypesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            AircraftType selectedPhone = (AircraftType)aircraftTypes.SelectedItem;
-            await new Windows.UI.Popups.MessageDialog($"Selected {selectedPhone.aircraftModel}").ShowAsync();
+            AircraftType selected = (AircraftType)AircraftType.SelectedItem;
+            //await new Windows.UI.Popups.MessageDialog($"Selected {selected.aircraftModel}").ShowAsync();
+            splitView.DataContext = selected;
+            splitView.IsPaneOpen = !splitView.IsPaneOpen;
         }
 
         //private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
