@@ -9,17 +9,17 @@ using AirportUWP.Services;
 
 namespace AirportUWP.ViewModels
 {
-    public class AircraftTypeViewModel : BaseViewModel
+    public class AircraftTypeViewModel //: BaseViewModel
     {
-        public ObservableCollection<AircraftType> AircraftTypes { get; set; }
-        public AircraftType AircraftType { get; set; }
-        public AircraftTypeService _aircraftTypeService;
+        public ObservableCollection<AircraftType> AircraftTypes { get; set; }= new ObservableCollection<AircraftType>();
+        //public AircraftType AircraftType { get; set; }
+       
 
         public AircraftTypeViewModel()
         {
-            Title = "AircraftType";
+           // Title = "AircraftType";
             _aircraftTypeService = new AircraftTypeService();
-            AircraftTypes = new ObservableCollection<AircraftType>();
+           // AircraftTypes 
             /*AircraftTypes = new ObservableCollection<AircraftType>()
             {
                 new AircraftType(){ aircraftModel = "Tupolev Tu-134", seatsNumber = 80, carrying = 47000},
@@ -28,11 +28,23 @@ namespace AirportUWP.ViewModels
             };*/
         }
 
-        public async Task/*<ObservableCollection<AircraftType>>*/ GetAsync()
+        public AircraftTypeService _aircraftTypeService;
+        
+        //public async Task/*<ObservableCollection<AircraftType>>*/ GetAsync()
+        //{
+        //    AircraftTypes = await _aircraftTypeService.GetAsync();
+        //    NotifyPropertyChanged(() => AircraftTypes);
+        //   //return AircraftTypes;
+        //}
+
+        public async Task UpdateList()
         {
-            AircraftTypes = await _aircraftTypeService.GetAsync();
-            //NotifyPropertyChanged(() => AircraftTypes);
-           // return AircraftTypes;
+            var newCollection = new ObservableCollection<AircraftType>(await _aircraftTypeService.GetAsync());
+            AircraftTypes.Clear();
+            foreach (var item in newCollection)
+            {
+                AircraftTypes.Add(item);
+            }
         }
         /*
         public async Task<AircraftType> GetAsync(int id)

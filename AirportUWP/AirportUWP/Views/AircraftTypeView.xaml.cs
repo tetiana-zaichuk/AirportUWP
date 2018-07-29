@@ -29,12 +29,12 @@ namespace AirportUWP.Views
     public sealed partial class AircraftTypeView : Page
     {
         //public ObservableCollection<AircraftType> AircraftTypes { get; set; }
-        public AircraftTypeViewModel AircraftTypeViewModel { get; set; }
+
 
         public AircraftTypeView()
         {
-            this.InitializeComponent();
             AircraftTypeViewModel = new AircraftTypeViewModel();
+            this.InitializeComponent();
             //
             //AircraftTypes = new ObservableCollection<AircraftType>();
             /*AircraftTypes = new ObservableCollection<AircraftType>()
@@ -44,22 +44,22 @@ namespace AirportUWP.Views
                 new AircraftType(){ aircraftModel = "Ilyushin IL-62", seatsNumber = 138, carrying = 280300}
             };*/
         }
-
+        public AircraftTypeViewModel AircraftTypeViewModel { get; set; }
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            await AircraftTypeViewModel.GetAsync();
+            await AircraftTypeViewModel.UpdateList();
         }
 
-       /* protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            AircraftTypes = new ObservableCollection<AircraftType>()
-            {
-                new AircraftType(){ aircraftModel = "Tupolev Tu-134", seatsNumber = 80, carrying = 47000},
-                new AircraftType(){ aircraftModel = "Tupolev Tu-204", seatsNumber = 196, carrying = 107900},
-                new AircraftType(){ aircraftModel = "Ilyushin IL-62", seatsNumber = 138, carrying = 280300}
-            };
-            //Frame.Navigate(typeof(MainPage));
-        }*/
+        /* protected override void OnNavigatedTo(NavigationEventArgs e)
+         {
+             AircraftTypes = new ObservableCollection<AircraftType>()
+             {
+                 new AircraftType(){ aircraftModel = "Tupolev Tu-134", seatsNumber = 80, carrying = 47000},
+                 new AircraftType(){ aircraftModel = "Tupolev Tu-204", seatsNumber = 196, carrying = 107900},
+                 new AircraftType(){ aircraftModel = "Ilyushin IL-62", seatsNumber = 138, carrying = 280300}
+             };
+             //Frame.Navigate(typeof(MainPage));
+         }*/
 
         private void aircraftTypesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
