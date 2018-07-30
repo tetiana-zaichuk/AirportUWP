@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using AirportUWP.Models;
 using AirportUWP.Services;
@@ -23,6 +24,12 @@ namespace AirportUWP.ViewModels
             {
                 Crews.Add(item);
             }
+        }
+
+        public async Task<ObservableCollection<Crew>> GetAsync()
+        {
+            var list =await _crewService.GetAsync();
+            return list;
         }
 
         public async Task AddAsync(Crew ob)

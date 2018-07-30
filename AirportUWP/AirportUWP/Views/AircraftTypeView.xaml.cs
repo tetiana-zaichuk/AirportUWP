@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using AirportUWP.Models;
 using AirportUWP.ViewModels;
@@ -69,10 +70,8 @@ namespace AirportUWP.Views
             ButtonAdd.IsEnabled = true;
         }
 
-        private async void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
-            TextBox t = new TextBox();
-            t.IsReadOnly = false;
             ButtonEdit.IsEnabled = false;
             ButtonSave.Visibility = Visibility.Visible;
             ButtonCancel.Visibility = Visibility.Visible;

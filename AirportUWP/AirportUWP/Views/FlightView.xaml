@@ -38,7 +38,7 @@
                     <TextBlock Text="arrival time" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" Grid.Row="3"/>
                     <TextBox x:Name="ArrivalTime" FontSize="16" Text="{Binding arrivalTime}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3"/>
                     <TextBlock Text="tickets count" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" Grid.Row="4"/>
-                    <TextBox x:Name="TicketsCount" IsReadOnly="True" FontSize="16" Text="{Binding tickets.Count}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4"/>
+                    <TextBlock x:Name="TicketsCount" FontSize="16" Text="{Binding tickets.Count}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4"/>
 
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">

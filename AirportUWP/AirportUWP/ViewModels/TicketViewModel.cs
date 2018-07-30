@@ -25,6 +25,12 @@ namespace AirportUWP.ViewModels
             }
         }
 
+        public async Task<ObservableCollection<Ticket>> GetAsync()
+        {
+            var list = await _ticketService.GetAsync();
+            return list;
+        }
+
         public async Task AddAsync(Ticket ob)
         {
             await _ticketService.PostAsync(ob);

@@ -27,8 +27,9 @@ namespace AirportUWP.ViewModels
 
         public async Task AddAsync(AircraftType ob)
         {
-            await _aircraftTypeService.PostAsync(ob);
-            await UpdateListAsync();
+            Task t1 = _aircraftTypeService.PostAsync(ob);
+            Task t2 = UpdateListAsync();
+            await Task.WhenAll(new[] { t1, t2 });
         }
 
         public async Task UpdateAsync(AircraftType type)
