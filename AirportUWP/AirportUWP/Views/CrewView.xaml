@@ -62,8 +62,8 @@
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
-
-            <ListBox Name="Crew" ItemsSource="{x:Bind CrewViewModel.Crews}" SelectionChanged="crewList_SelectionChanged" >
+            <StackPanel>
+                <ListBox Name="Crew" ItemsSource="{x:Bind CrewViewModel.Crews}" SelectionChanged="crewList_SelectionChanged" >
                 <ListBox.ItemTemplate>
                     <DataTemplate x:DataType="models:Crew">
                         <StackPanel Margin="14, 10"  HorizontalAlignment="Center">

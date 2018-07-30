@@ -74,6 +74,7 @@ namespace AirportUWP.Views
             TimeSpan value2;
             if (DateTime.TryParse(AircraftReleaseDate1.Text, out value))
                 ob.aircraftReleaseDate = value;
+            else return;
             if (TimeSpan.TryParse(ExploitationTimeSpan1.Text, out value2))
                 ob.exploitationTimeSpan = value2;
             else return;

@@ -39,8 +39,8 @@
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
-
-            <ListBox Name="Ticket" ItemsSource="{x:Bind TicketViewModel.Tickets}" SelectionChanged="ticketList_SelectionChanged" >
+            <StackPanel>
+                <ListBox Name="Ticket" ItemsSource="{x:Bind TicketViewModel.Tickets}" SelectionChanged="ticketList_SelectionChanged" >
                 <ListBox.ItemTemplate>
                     <DataTemplate x:DataType="models:Ticket">
                         <StackPanel Margin="14, 10"  HorizontalAlignment="Center">

@@ -48,8 +48,8 @@
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
-
-            <ListBox Name="Flight" ItemsSource="{x:Bind FlightViewModel.Flights}" SelectionChanged="flightList_SelectionChanged" >
+            <StackPanel>
+                <ListBox Name="Flight" ItemsSource="{x:Bind FlightViewModel.Flights}" SelectionChanged="flightList_SelectionChanged" >
                 <ListBox.ItemTemplate>
                     <DataTemplate x:DataType="models:Flight">
                         <StackPanel Margin="14, 10"  HorizontalAlignment="Center">

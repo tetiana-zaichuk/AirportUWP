@@ -60,6 +60,7 @@ namespace AirportUWP.Views
             int value;
             if (int.TryParse(SeatsNumber1.Text, out value))
                 type.seatsNumber = value;
+            else return;
             if (int.TryParse(Carrying1.Text, out value))
                 type.carrying = value;
             else return;

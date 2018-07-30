@@ -43,8 +43,8 @@
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
-
-            <ListBox Name="AircraftType" ItemsSource="{x:Bind AircraftTypeViewModel.AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged" >
+            <StackPanel>
+                <ListBox Name="AircraftType" ItemsSource="{x:Bind AircraftTypeViewModel.AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged" >
                 <ListBox.ItemTemplate>
                     <DataTemplate x:DataType="models:AircraftType">
                         <StackPanel Margin="14, 10"  HorizontalAlignment="Center">
@@ -87,7 +87,7 @@
                         <RowDefinition MinHeight="35" MaxHeight="40"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="aircraft model" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBox x:Name="AircraftModel1" IsReadOnly="True" FontSize="16" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                    <TextBox x:Name="AircraftModel1" FontSize="16" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
                     <TextBlock Text="seats number" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" FontWeight="SemiBold"/>
                     <TextBox x:Name="SeatsNumber1" FontSize="16" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
                     <TextBlock Text="carrying" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontWeight="SemiBold"/>

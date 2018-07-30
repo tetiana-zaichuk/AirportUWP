@@ -49,6 +49,7 @@
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
+
             <StackPanel>
             <ListBox Name="Pilot" ItemsSource="{x:Bind PilotViewModel.Pilots}" SelectionChanged="pilotList_SelectionChanged" >
                 <ListBox.ItemTemplate>
