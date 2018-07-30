@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using AirportUWP.Models;
 using Newtonsoft.Json;
@@ -24,6 +25,7 @@ namespace AirportUWP.Services
             if (_client == null)
             {
                 _client = new HttpClient();
+                _client.Timeout = TimeSpan.FromMinutes(10);
             }
         }
         public AircraftType selectedItem;
@@ -65,7 +67,7 @@ namespace AirportUWP.Services
         {
             await _client.DeleteAsync(new Uri("" + _uri + id));
         }
-
+        
         public async Task PostAsync(AircraftType type)
         {
             var json = new StringContent(JsonConvert.SerializeObject(type), Encoding.UTF8, "application/json");

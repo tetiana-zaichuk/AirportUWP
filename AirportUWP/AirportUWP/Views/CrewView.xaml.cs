@@ -60,9 +60,18 @@ namespace AirportUWP.Views
         private async void ButtonSave1_Click(object sender, RoutedEventArgs e)
         {
             var ob = new Crew();
-           // ob.pilot.firstName = PFirstName1.Text;
-            //ob.pilot.lastName = PLastName1.Text;
-            //await CrewViewModel.AddAsync(ob);
+            ob.pilot = new Pilot();
+            ob.pilot.firstName = FirstName1.Text;
+            ob.pilot.lastName = LastName1.Text;
+            DateTime value;
+            int value1;
+            if (DateTime.TryParse(Dob1.Text, out value))
+                ob.pilot.dob = value;
+            else return;
+            if (int.TryParse(Experience1.Text, out value1))
+                ob.pilot.experience = value1;
+            else return;
+            await CrewViewModel.AddAsync(ob);
             AddForm.Visibility = Visibility.Collapsed;
             ButtonAdd.IsEnabled = true;
         }

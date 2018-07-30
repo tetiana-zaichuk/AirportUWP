@@ -15,6 +15,12 @@ namespace AirportUWP.ViewModels
             _flightService = new FlightService();
         }
 
+        public async Task<ObservableCollection<Flight>> GetAsync()
+        {
+            var list = await _flightService.GetAsync();
+            return list;
+        }
+
         public async Task UpdateListAsync()
         {
             var newCollection = new ObservableCollection<Flight>(await _flightService.GetAsync());
