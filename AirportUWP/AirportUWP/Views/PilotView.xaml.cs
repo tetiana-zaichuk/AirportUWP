@@ -52,10 +52,42 @@ namespace AirportUWP.Views
             }
         }
 
-        private async void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            TextBox t = new TextBox();
-            t.IsReadOnly = false;
+            ButtonAdd.IsEnabled = false;
+            AddForm.Visibility = Visibility.Visible;
+
+        }
+
+        private void ButtonCancel1_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonAdd.IsEnabled = true;
+            AddForm.Visibility = Visibility.Collapsed;
+        }
+
+        private async void ButtonSave1_Click(object sender, RoutedEventArgs e)
+        {
+            var ob=new Pilot();
+            ob.firstName = FirstName1.Text;
+            ob.lastName = LastName1.Text;
+            DateTime value1;
+            int value;
+            if (DateTime.TryParse(Dob1.Text, out value1))
+                ob.dob = value1;
+            else return;
+            if (int.TryParse(CrewId1.Text, out value))
+                ob.crewId = value;
+            else return;
+            if (int.TryParse(Experience1.Text, out value))
+                ob.experience = value;
+            else return;
+            await PilotViewModel.AddAsync(ob);
+            AddForm.Visibility = Visibility.Collapsed;
+            ButtonAdd.IsEnabled = true;
+        }
+
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        {
             ButtonEdit.IsEnabled = false;
             ButtonSave.Visibility = Visibility.Visible;
             ButtonCancel.Visibility = Visibility.Visible;

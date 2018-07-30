@@ -43,6 +43,31 @@ namespace AirportUWP.Views
             splitView.IsPaneOpen = !splitView.IsPaneOpen;
         }
 
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonAdd.IsEnabled = false;
+            AddForm.Visibility = Visibility.Visible;
+
+        }
+
+        private void ButtonCancel1_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonAdd.IsEnabled = true;
+            AddForm.Visibility = Visibility.Collapsed;
+        }
+
+        private async void ButtonSave1_Click(object sender, RoutedEventArgs e)
+        {
+            var ob = new Crew();
+           // ob.pilot.firstName = PFirstName1.Text;
+            //ob.pilot.lastName = PLastName1.Text;
+            //await CrewViewModel.AddAsync(ob);
+            AddForm.Visibility = Visibility.Collapsed;
+            ButtonAdd.IsEnabled = true;
+        }
+
+
         private async void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
             if (splitView.DataContext != null)
@@ -54,8 +79,6 @@ namespace AirportUWP.Views
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
-            TextBox t = new TextBox();
-            t.IsReadOnly = false;
             ButtonEdit.IsEnabled = false;
             ButtonSave.Visibility = Visibility.Visible;
             ButtonCancel.Visibility = Visibility.Visible;
@@ -63,20 +86,16 @@ namespace AirportUWP.Views
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            /*if (splitView.DataContext != null)
+            if (splitView.DataContext != null)
             {
                 var ob = splitView.DataContext as Crew;
-                ob.aircraftModel = AircraftModel.Text;
-                int value;
-                if (int.TryParse(SeatsNumber.Text, out value))
-                    ob.seatsNumber = value;
-                if (int.TryParse(Carrying.Text, out value))
-                    ob.carrying = value;
+                ob.pilot.firstName = PFirstName.Text;
+                ob.pilot.lastName = PLastName.Text;
                 await CrewViewModel.UpdateAsync(ob);
             }
             ButtonSave.Visibility = Visibility.Collapsed;
             ButtonCancel.Visibility = Visibility.Collapsed;
-            ButtonEdit.IsEnabled = true;*/
+            ButtonEdit.IsEnabled = true;
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)

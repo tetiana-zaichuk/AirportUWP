@@ -53,6 +53,36 @@ namespace AirportUWP.Views
             }
         }
 
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonAdd.IsEnabled = false;
+            AddForm.Visibility = Visibility.Visible;
+
+        }
+
+        private void ButtonCancel1_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonAdd.IsEnabled = true;
+            AddForm.Visibility = Visibility.Collapsed;
+        }
+
+        private async void ButtonSave1_Click(object sender, RoutedEventArgs e)
+        {
+            var ob = new Aircraft();
+            ob.aircraftName = AircraftName1.Text;
+            DateTime value;
+            TimeSpan value2;
+            if (DateTime.TryParse(AircraftReleaseDate1.Text, out value))
+                ob.aircraftReleaseDate = value;
+            else return;
+            if (TimeSpan.TryParse(ExploitationTimeSpan1.Text, out value2))
+                ob.exploitationTimeSpan = value2;
+            else return;
+            await AircraftViewModel.AddAsync(ob);
+            AddForm.Visibility = Visibility.Collapsed;
+            ButtonAdd.IsEnabled = true;
+        }
+
         private async void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
             TextBox t = new TextBox();

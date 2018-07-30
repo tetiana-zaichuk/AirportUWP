@@ -43,8 +43,8 @@
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
-
-            <ListBox Name="AircraftType" ItemsSource="{x:Bind AircraftTypeViewModel.AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged" >
+            <StackPanel>
+                <ListBox Name="AircraftType" ItemsSource="{x:Bind AircraftTypeViewModel.AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged" >
                 <ListBox.ItemTemplate>
                     <DataTemplate x:DataType="models:AircraftType">
                         <StackPanel Margin="14, 10"  HorizontalAlignment="Center">
@@ -68,31 +68,37 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="ButtonAdd" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Add" Click="ButtonAdd_Click" Margin="15"/>
+            </StackPanel>
+            <StackPanel x:Name="AddForm" Visibility="Collapsed">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="ButtonSave1" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Save" Click="ButtonSave1_Click" Margin="15" />
+                    <Button x:Name="ButtonCancel1" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Cancel" Click="ButtonCancel1_Click"/>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition MinHeight="35" MaxHeight="40"/>
+                        <RowDefinition MinHeight="35" MaxHeight="40"/>
+                        <RowDefinition MinHeight="35" MaxHeight="40"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="aircraft model" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="AircraftModel1" FontSize="16" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                    <TextBlock Text="seats number" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="SeatsNumber1" FontSize="16" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock Text="carrying" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="Carrying1" FontSize="16" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
+
+                </Grid>
+
+            </StackPanel>
+            </StackPanel>
+
         </SplitView.Content>
     </SplitView>
 
-    <!--<Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <ListBox Name="aircraftTypes" ItemsSource="{x:Bind AircraftTypes}" SelectionChanged="aircraftTypesList_SelectionChanged">
-            <ListBox.ItemTemplate>
-                <DataTemplate x:DataType="models:AircraftType">
-                    <StackPanel Margin="10">
-                        <TextBlock FontSize="16" Text="You here" HorizontalAlignment="Center" />
-                        <TextBlock FontSize="16" Text="{x:Bind aircraftModel}" HorizontalAlignment="Center" />
-                        <TextBlock FontSize="16" Text="{x:Bind seatsNumber}" HorizontalAlignment="Center" />
-                        <TextBlock FontSize="16" Text="{x:Bind carrying}" HorizontalAlignment="Center" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>-->
-    <!--<StackPanel Grid.Row="1" Margin="15">
-            <TextBox Name="titleTextBox" PlaceholderText="Введите название" Margin="2" />
-            <TextBox Name="companyTextBox" PlaceholderText="Введите производителя" Margin="2" />
-            <Button Content="Сохранить" Click="Button_Click" Margin="3" />
-        </StackPanel>
-
-    </Grid>-->
 </Page>

@@ -39,8 +39,8 @@
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
-
-            <ListBox Name="Ticket" ItemsSource="{x:Bind TicketViewModel.Tickets}" SelectionChanged="ticketList_SelectionChanged" >
+            <StackPanel>
+                <ListBox Name="Ticket" ItemsSource="{x:Bind TicketViewModel.Tickets}" SelectionChanged="ticketList_SelectionChanged" >
                 <ListBox.ItemTemplate>
                     <DataTemplate x:DataType="models:Ticket">
                         <StackPanel Margin="14, 10"  HorizontalAlignment="Center">
@@ -63,6 +63,33 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="ButtonAdd" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Add" Click="ButtonAdd_Click" Margin="15"/>
+            </StackPanel>
+            <StackPanel x:Name="AddForm" Visibility="Collapsed">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="ButtonSave1" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Save" Click="ButtonSave1_Click" Margin="15" />
+                    <Button x:Name="ButtonCancel1" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Cancel" Click="ButtonCancel1_Click"/>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition MinHeight="35" MaxHeight="40"/>
+                        <RowDefinition MinHeight="35" MaxHeight="40"/>
+                        <RowDefinition MinHeight="35" MaxHeight="40"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="price" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="price1" FontSize="16" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock Text="flight id" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="flightId1" FontSize="16" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
+                </Grid>
+
+            </StackPanel>
+            </StackPanel>
 
         </SplitView.Content>
     </SplitView>
