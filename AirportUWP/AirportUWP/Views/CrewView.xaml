@@ -28,9 +28,9 @@
                         <RowDefinition MinHeight="35" MaxHeight="40"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="pilot first name" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBox x:Name="PFirstName" FontSize="16" Text="{Binding pilot.firstName}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                    <TextBox x:Name="PFirstName"  IsReadOnly="True" FontSize="16" Text="{Binding pilot.firstName}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
                     <TextBlock Text="pilot last name" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBox x:Name="PLastName" FontSize="16" Text="{Binding pilot.lastName}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                    <TextBox x:Name="PLastName" IsReadOnly="True" FontSize="16" Text="{Binding pilot.lastName}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
                     <TextBlock Text="stewardess count" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontWeight="SemiBold"/>
                     <TextBlock x:Name="StFirstName" FontSize="16" Text="{Binding stewardesses.Count}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
                 </Grid>

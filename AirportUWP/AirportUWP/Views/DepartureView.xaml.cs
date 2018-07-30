@@ -84,6 +84,7 @@ namespace AirportUWP.Views
             ButtonEdit.IsEnabled = false;
             ButtonSave.Visibility = Visibility.Visible;
             ButtonCancel.Visibility = Visibility.Visible;
+            DepartureDate.IsReadOnly = false;
         }
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
@@ -98,13 +99,15 @@ namespace AirportUWP.Views
             }
             ButtonSave.Visibility = Visibility.Collapsed;
             ButtonCancel.Visibility = Visibility.Collapsed;
+            DepartureDate.IsReadOnly = true;
             ButtonEdit.IsEnabled = true;
         }
 
-        private async void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
             ButtonSave.Visibility = Visibility.Collapsed;
             ButtonCancel.Visibility = Visibility.Collapsed;
+            DepartureDate.IsReadOnly = true;
             ButtonEdit.IsEnabled = true;
         }
     }

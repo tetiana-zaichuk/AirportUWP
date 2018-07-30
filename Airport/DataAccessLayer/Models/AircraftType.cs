@@ -8,7 +8,7 @@ namespace DataAccessLayer.Models
         public int SeatsNumber { get; set; }
         public int Carrying { get; set; }
         
-        public int AircraftId { get; set; }
+        public int? AircraftId { get; set; }
         [ForeignKey("AircraftId")]
         public Aircraft Aircraft { get; set; }
     }

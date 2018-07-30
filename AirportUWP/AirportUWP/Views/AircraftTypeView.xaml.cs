@@ -45,7 +45,6 @@ namespace AirportUWP.Views
         {
             ButtonAdd.IsEnabled = false;
             AddForm.Visibility = Visibility.Visible;
-
         }
 
         private void ButtonCancel1_Click(object sender, RoutedEventArgs e)
@@ -75,6 +74,9 @@ namespace AirportUWP.Views
             ButtonEdit.IsEnabled = false;
             ButtonSave.Visibility = Visibility.Visible;
             ButtonCancel.Visibility = Visibility.Visible;
+            AircraftModel.IsReadOnly = false;
+            SeatsNumber.IsReadOnly = false;
+            Carrying.IsReadOnly = false;
         }
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
@@ -92,17 +94,21 @@ namespace AirportUWP.Views
             }
             ButtonSave.Visibility = Visibility.Collapsed;
             ButtonCancel.Visibility = Visibility.Collapsed;
+            AircraftModel.IsReadOnly = true;
+            SeatsNumber.IsReadOnly = true;
+            Carrying.IsReadOnly = true;
             ButtonEdit.IsEnabled = true;
         }
 
-        private async void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
             ButtonSave.Visibility = Visibility.Collapsed;
             ButtonCancel.Visibility = Visibility.Collapsed;
+            AircraftModel.IsReadOnly = true;
+            SeatsNumber.IsReadOnly = true;
+            Carrying.IsReadOnly = true;
             ButtonEdit.IsEnabled = true;
         }
-
-
     }
 }
 

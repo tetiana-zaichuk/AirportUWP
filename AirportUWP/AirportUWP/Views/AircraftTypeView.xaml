@@ -31,9 +31,9 @@
                     <TextBlock Text="aircraft model" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
                     <TextBox x:Name="AircraftModel" IsReadOnly="True" FontSize="16" Text="{Binding aircraftModel}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
                     <TextBlock Text="seats number" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBox x:Name="SeatsNumber" FontSize="16" Text="{Binding seatsNumber}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                    <TextBox x:Name="SeatsNumber" IsReadOnly="True" FontSize="16" Text="{Binding seatsNumber}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
                     <TextBlock Text="carrying" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBox x:Name="Carrying" FontSize="16" Text="{Binding carrying}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
+                    <TextBox x:Name="Carrying" IsReadOnly="True" FontSize="16" Text="{Binding carrying}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2"/>
 
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
