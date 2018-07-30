@@ -36,8 +36,8 @@ namespace AirportUWP.Views
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             await PilotViewModel.UpdateListAsync();
-            crewList.ItemsSource = await CrewViewModel.GetAsync();
-            crewList1.ItemsSource = crewList.ItemsSource;
+            //crewList.ItemsSource = await CrewViewModel.GetAsync();
+            //crewList1.ItemsSource = crewList.ItemsSource;
         }
 
         private void pilotList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -60,14 +60,14 @@ namespace AirportUWP.Views
         {
             ButtonAdd.IsEnabled = false;
             AddForm.Visibility = Visibility.Visible;
-            crewList1.Visibility = Visibility.Visible;
+            //crewList1.Visibility = Visibility.Visible;
         }
 
         private void ButtonCancel1_Click(object sender, RoutedEventArgs e)
         {
             ButtonAdd.IsEnabled = true;
             AddForm.Visibility = Visibility.Collapsed;
-            crewList1.Visibility = Visibility.Collapsed;
+           // crewList1.Visibility = Visibility.Collapsed;
         }
 
         private async void ButtonSave1_Click(object sender, RoutedEventArgs e)
@@ -80,25 +80,30 @@ namespace AirportUWP.Views
             if (DateTime.TryParse(Dob1.Text, out value1))
                 ob.dob = value1;
             else return;
-            var Crew = crewList1.SelectedItem as Crew;
-                if (Crew != null)
-                    ob.crewId = Crew.id;
-                else return;
+            //var Crew = crewList1.SelectedItem as Crew;
+            //    if (Crew != null)
+            //        ob.crewId = Crew.id;
+            //    else return;
             if (int.TryParse(Experience1.Text, out value))
                 ob.experience = value;
             else return;
             await PilotViewModel.AddAsync(ob);
             AddForm.Visibility = Visibility.Collapsed;
-            crewList1.Visibility = Visibility.Collapsed;
+           // crewList1.Visibility = Visibility.Collapsed;
             ButtonAdd.IsEnabled = true;
         }
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
             ButtonEdit.IsEnabled = false;
-            crewList.Visibility = Visibility.Visible;
+            //crewList.Visibility = Visibility.Visible;
             ButtonSave.Visibility = Visibility.Visible;
             ButtonCancel.Visibility = Visibility.Visible;
+            FirstName.IsReadOnly = false;
+            LastName.IsReadOnly = false;
+            Dob.IsReadOnly = false;
+            Experience.IsReadOnly = false;
+            CrewId.IsReadOnly = false;
         }
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
@@ -112,28 +117,41 @@ namespace AirportUWP.Views
                 int value;
                 if (DateTime.TryParse(Dob.Text, out value1))
                     ob.dob = value1;
+                else return;
                 if (int.TryParse(Experience.Text, out value))
                     ob.experience = value;
                 else return;
-                var Crew = crewList.SelectedItem as Crew;
-                if (Crew != null)
-                    ob.crewId = Crew.id;
+                //var Crew = crewList.SelectedItem as Crew;
+                //if (Crew != null)
+                //    ob.crewId = Crew.id;
+                //else return;
+                if (int.TryParse(CrewId.Text, out value))
+                    ob.crewId = value;
                 else return;
-
                 await PilotViewModel.UpdateAsync(ob);
             }
             ButtonSave.Visibility = Visibility.Collapsed;
             ButtonCancel.Visibility = Visibility.Collapsed;
-            crewList.Visibility = Visibility.Collapsed;
+            //crewList.Visibility = Visibility.Collapsed;
+            FirstName.IsReadOnly = true;
+            LastName.IsReadOnly = true;
+            Dob.IsReadOnly = true;
+            Experience.IsReadOnly = true;
             ButtonEdit.IsEnabled = true;
+            CrewId.IsReadOnly = true;
         }
 
-        private async void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
             ButtonSave.Visibility = Visibility.Collapsed;
             ButtonCancel.Visibility = Visibility.Collapsed;
-            crewList.Visibility = Visibility.Collapsed;
+            //crewList.Visibility = Visibility.Collapsed;
             ButtonEdit.IsEnabled = true;
+            FirstName.IsReadOnly = true;
+            LastName.IsReadOnly = true;
+            Dob.IsReadOnly = true;
+            Experience.IsReadOnly = true;
+            CrewId.IsReadOnly = true;
         }
     }
 }

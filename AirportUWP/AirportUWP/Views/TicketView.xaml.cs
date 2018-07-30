@@ -83,11 +83,11 @@ namespace AirportUWP.Views
 
         private async void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
-            TextBox t = new TextBox();
-            t.IsReadOnly = false;
             ButtonEdit.IsEnabled = false;
             ButtonSave.Visibility = Visibility.Visible;
             ButtonCancel.Visibility = Visibility.Visible;
+            price.IsReadOnly = false;
+            flightId.IsReadOnly = false;
         }
 
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
@@ -105,6 +105,8 @@ namespace AirportUWP.Views
             }
             ButtonSave.Visibility = Visibility.Collapsed;
             ButtonCancel.Visibility = Visibility.Collapsed;
+            price.IsReadOnly = true;
+            flightId.IsReadOnly = true;
             ButtonEdit.IsEnabled = true;
         }
 
@@ -112,6 +114,8 @@ namespace AirportUWP.Views
         {
             ButtonSave.Visibility = Visibility.Collapsed;
             ButtonCancel.Visibility = Visibility.Collapsed;
+            price.IsReadOnly = true;
+            flightId.IsReadOnly = true;
             ButtonEdit.IsEnabled = true;
         }
     }
