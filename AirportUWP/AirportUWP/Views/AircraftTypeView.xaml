@@ -15,8 +15,12 @@
             <StackPanel Margin="10" DataContext="{Binding DataContext,ElementName=splitView, Mode=TwoWay}">
                 <TextBlock Text="Details" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="21"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="ButtonSave" Visibility="Collapsed" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Save" Click="ButtonSave_Click" Margin="15" />
-                    <Button x:Name="ButtonCancel" Visibility="Collapsed" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Cancel" Click="ButtonCancel_Click"/>
+                    <Button x:Name="ButtonSave" Visibility="Collapsed" Width="43" Height="43" Background="LightGray" FontWeight="SemiBold" Click="ButtonSave_Click" Margin="15" >
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE78C;" />
+                    </Button>
+                    <Button x:Name="ButtonCancel" Visibility="Collapsed" Width="43" Height="43" Background="LightGray" FontWeight="SemiBold" Click="ButtonCancel_Click">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE711;" />
+                    </Button>
                 </StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -37,8 +41,12 @@
 
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="ButtonEdit" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Edit" Click="ButtonEdit_Click" Margin="15" />
-                    <Button x:Name="ButtonDelete" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Delete" Click="ButtonDelete_Click" />
+                    <Button x:Name="ButtonEdit" Width="43" Height="43" Background="LightGray" FontWeight="SemiBold" Click="ButtonEdit_Click" Margin="15" >
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE70F;" />
+                    </Button>
+                    <Button x:Name="ButtonDelete" Width="43" Height="43" Background="LightGray" FontWeight="SemiBold" Click="ButtonDelete_Click">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE74D;" />
+                    </Button>
                 </StackPanel>
             </StackPanel>
         </SplitView.Pane>
@@ -69,14 +77,20 @@
             </ListBox>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="ButtonAdd" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Add" Click="ButtonAdd_Click" Margin="15"/>
-            </StackPanel>
+                <Button x:Name="ButtonAdd" Width="43" Height="43" Background="LightGray" FontWeight="SemiBold" Click="ButtonAdd_Click" Margin="15">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;" />
+                </Button>
+                </StackPanel>
             <StackPanel x:Name="AddForm" Visibility="Collapsed">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="ButtonSave1" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Save" Click="ButtonSave1_Click" Margin="15" />
-                    <Button x:Name="ButtonCancel1" Width="70" Height="31" Background="LightGray" FontWeight="SemiBold" Content="Cancel" Click="ButtonCancel1_Click"/>
+                    <Button x:Name="ButtonSave1" Width="43" Height="43" Background="LightGray" FontWeight="SemiBold" Click="ButtonSave1_Click" Margin="15">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE78C;" />
+                    </Button>
+                    <Button x:Name="ButtonCancel1" Width="43" Height="43" Background="LightGray" FontWeight="SemiBold" Click="ButtonCancel1_Click">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE711;" />
+                    </Button>
                 </StackPanel>
-                <Grid>
+                    <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
