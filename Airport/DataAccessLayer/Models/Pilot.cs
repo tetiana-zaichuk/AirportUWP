@@ -10,7 +10,7 @@ namespace DataAccessLayer.Models
         public DateTime Dob { get; set; }
         public int Experience { get; set; }
         
-        public int CrewId { get; set; }
+        public int? CrewId { get; set; }
         [ForeignKey("CrewId")]
         public Crew Crew { get; set; }
     }
