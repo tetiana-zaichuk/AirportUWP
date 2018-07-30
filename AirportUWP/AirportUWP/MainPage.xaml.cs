@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -32,6 +33,24 @@ namespace AirportUWP
             this.InitializeComponent();
             MenuFrame.Navigate(typeof(FlightView));
             TitleTextBlock.Text = "Flights";
+            Windows.UI.ViewManagement.ApplicationView appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
+            appView.SetPreferredMinSize(new Size(300, 300));
+
+            this.SizeChanged += MainPage_SizeChanged;
+        }
+
+        private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (this.ActualWidth >= 500)
+            {
+                TitleTextBlock.FontStretch = FontStretch.SemiExpanded;
+                TitleTextBlock.FontSize = 24;
+            }
+            else
+            {
+                TitleTextBlock.FontStretch = FontStretch.Undefined;
+                TitleTextBlock.FontSize = 17;
+            }
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -82,10 +101,5 @@ namespace AirportUWP
         {
             mySplitView.IsPaneOpen = !mySplitView.IsPaneOpen;
         }
-
-        /*private void Forward_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(AircraftTypeView));
-        }*/
     }
 }
